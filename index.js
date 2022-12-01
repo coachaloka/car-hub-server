@@ -87,6 +87,20 @@ async function run() {
             const result = await adverticCollection.insertOne(boking);
             res.send(result);
         });
+        //Booking resive on email user 
+        app.get('/advertic/:email', async (req, res) => {
+            const email = req.params.email;
+            const query = { email: email };
+            const result = await adverticCollection.find(query).toArray();
+            res.send(result);
+        });
+        //Booking resive on email user 
+        app.get('/bookings/:email', async (req, res) => {
+            const email = req.params.email;
+            const query = { email: email };
+            const result = await BookingCar.find(query).toArray();
+            res.send(result);
+        });
 
         
 
