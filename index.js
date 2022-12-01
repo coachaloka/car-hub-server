@@ -48,7 +48,21 @@ async function run() {
             const query = {};
             const result = await CetegoriesCars.find(query).toArray();
             res.send(result);
-        })
+        });
+        // Product car post
+        app.post('/productAdd', async (req, res) => {
+            const review = req.body;
+            const result = await allCarCollection.insertOne(review);
+            res.send(result)
+        });
+        
+        // cetegories/:Id filter
+        app.get('/cetegories/:id', async (req, res) => {
+            const product = req.params.id;
+            const query = { id: product };
+            const result = await allCarCollection.find(query).toArray();
+            res.send(result);
+        });
 
         
 
@@ -63,6 +77,6 @@ run().catch(error => console.log(error))
 
 
 app.get('/', (req, res) => {
-    res.send('Car point is Runings');
+    res.send('Car point is Runings')
 })
 app.listen(port, () => console.log(`Cars point is Runing is ${port}`))
