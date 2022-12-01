@@ -139,7 +139,7 @@ async function run() {
             }
             console.log(user);
             res.status(403).send({ accessToken: ''})
-        })
+        });
 
         
 
