@@ -128,6 +128,18 @@ async function run() {
             const result = await AllUser.find(query).toArray();
             res.send(result)
         });
+        //Jwt token access
+        app.get('/jwt', async (req, res) => {
+            const email = req.query.email;
+            const query = { email: email };
+            const user = await AllUser.findOne(query);
+            if (user) {
+                const token = jwt.sign({ email }, process.env.ACCSS_TOKEN, { expiresIn: '1h' });
+                return res.send({ accessToken: token })
+            }
+            console.log(user);
+            res.status(403).send({ accessToken: ''})
+        })
 
         
 
