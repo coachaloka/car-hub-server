@@ -75,6 +75,18 @@ async function run() {
             const result = await allCarCollection.find(query).toArray();
             res.send(result)
         });
+        //Booking Car Modal infromation
+        app.post('/booking', async (req, res) => {
+            const boking = req.body;
+            const result = await BookingCar.insertOne(boking);
+            res.send(result);
+        });
+        //Advatice Car Modal infromations
+        app.post('/advertic', async (req, res) => {
+            const boking = req.body;
+            const result = await adverticCollection.insertOne(boking);
+            res.send(result);
+        });
 
         
 
