@@ -118,7 +118,7 @@ async function run() {
         app.get('/users', async (req, res) => {
             const query = {};
             const result = await AllUser.find(query).toArray();
-            res.send(result)
+            res.send(result);
         });
         // seller emaill
         app.get('/users/:email', async (req, res) => {
@@ -126,7 +126,7 @@ async function run() {
             // console.log(email);
             const query = { email: email };
             const result = await AllUser.find(query).toArray();
-            res.send(result)
+            res.send(result);
         });
         //Jwt token access
         app.get('/jwt', async (req, res) => {
@@ -138,7 +138,7 @@ async function run() {
                 return res.send({ accessToken: token })
             }
             console.log(user);
-            res.status(403).send({ accessToken: ''})
+            res.status(403).send({ accessToken: ''});
         });
 
         
