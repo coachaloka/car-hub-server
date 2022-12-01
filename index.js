@@ -63,6 +63,18 @@ async function run() {
             const result = await allCarCollection.find(query).toArray();
             res.send(result);
         });
+        // all collection
+        app.get('/allProduct', async (req, res) => {
+            const query = {};
+            const result = await allCarCollection.find(query).toArray();
+            res.send(result)
+        });
+        app.get('/allProduct/:email', async (req, res) => {
+            const user = req.params.email
+            const query = { email: user };
+            const result = await allCarCollection.find(query).toArray();
+            res.send(result)
+        });
 
         
 
