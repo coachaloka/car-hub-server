@@ -37,11 +37,11 @@ async function verifyJWT(req, res, next) {
 async function run() {
 
     try {
-        const CetegoriesCars = client.db('carPoint').collection('categories');
-        const allCarCollection = client.db('carPoint').collection('All-Products');
-        const BookingCar = client.db('carPoint').collection('BookingCar');
-        const AllUser = client.db('carPoint').collection('All-Users');
-        const adverticCollection = client.db('carPoint').collection('All-Advertic');
+        const CetegoriesCars = client.db('usedCar').collection('categories');
+        const allCarCollection = client.db('usedCar').collection('All-Products');
+        const BookingCar = client.db('usedCar').collection('BookingCar');
+        const AllUser = client.db('usedCar').collection('All-Users');
+        const adverticCollection = client.db('usedCar').collection('All-Advertic');
 
         // get all cetegories collctions
         app.get('/cetegories', async (req, res) => {
